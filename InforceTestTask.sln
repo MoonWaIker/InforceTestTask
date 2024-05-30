@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InforceTestTask", "InforceTestTask\InforceTestTask.csproj", "{9FCA6D1C-6E40-414C-8F10-B2BA05AA8E09}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InforceTestTaskTest", "InforceTestTaskTest\InforceTestTaskTest.csproj", "{F3FDF858-B1CB-44BF-874B-87641A8FE570}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{9FCA6D1C-6E40-414C-8F10-B2BA05AA8E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FCA6D1C-6E40-414C-8F10-B2BA05AA8E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FCA6D1C-6E40-414C-8F10-B2BA05AA8E09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3FDF858-B1CB-44BF-874B-87641A8FE570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3FDF858-B1CB-44BF-874B-87641A8FE570}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3FDF858-B1CB-44BF-874B-87641A8FE570}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3FDF858-B1CB-44BF-874B-87641A8FE570}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
