@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace InforceTestTask.Controllers;
 
 [ApiController]
-[Route("[Controller]")]
+[Route("api/[Controller]")]
 public sealed class LoginController(InforceDbContext context) : Controller
 {
     private const string ActionRoute = "[action]";
