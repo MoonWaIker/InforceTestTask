@@ -12,10 +12,11 @@ namespace InforceTestTask.Controllers;
 [Route("[Controller]")]
 public sealed class LoginController(InforceDbContext context) : Controller
 {
+    private const string ActionRoute = "[action]";
     private const string DefaultAuthType = "ApplicationCookie";
 
     [AllowAnonymous]
-    [HttpPost("[action]")]
+    [HttpPost(ActionRoute)]
     public async Task<IActionResult> Login(User model)
     {
         if (ModelState.IsValid && context.Users
@@ -27,7 +28,7 @@ public sealed class LoginController(InforceDbContext context) : Controller
     }
 
     [AllowAnonymous]
-    [HttpPost("[action]")]
+    [HttpPost(ActionRoute)]
     public async Task<IActionResult> Register(User model)
     {
         if (!ModelState.IsValid || context.Users
@@ -42,7 +43,7 @@ public sealed class LoginController(InforceDbContext context) : Controller
     }
 
     [Authorize]
-    [HttpPost("[action]")]
+    [HttpPost(ActionRoute)]
     public async Task<IActionResult> Logout()
     {
         await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
