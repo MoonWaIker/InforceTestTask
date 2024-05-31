@@ -108,7 +108,10 @@
     <inspection_tool class="UnusedDefine" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="UseEllipsisInPropertyInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="VoidExpressionJS" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="W3CssValidation" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="W3CssValidation" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myCssVersion" value="css3svg" />
+      <option name="myIgnoreVendorSpecificProperties" value="false" />
+    </inspection_tool>
     <inspection_tool class="XHTMLIncompatabilitiesJS" enabled="true" level="WARNING" enabled_by_default="true" />
   </profile>
 </component>
