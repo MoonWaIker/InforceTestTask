@@ -56,7 +56,7 @@ public sealed class LoginController(InforceDbContext context) : Controller
     {
         var claim = new Claim[]
         {
-            new(ClaimsIdentity.DefaultNameClaimType, user.UserName),
+            new(ClaimsIdentity.DefaultNameClaimType, user.Id.ToString()),
             new(ClaimsIdentity.DefaultRoleClaimType, user.Role.ToString())
         };
         ClaimsIdentity claimsIdentity = new(claim, DefaultAuthType,

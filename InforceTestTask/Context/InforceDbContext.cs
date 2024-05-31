@@ -11,4 +11,6 @@ public sealed class InforceDbContext : DbContext
     }
 
     public DbSet<User> Users { get; set; }
+
+    public DbSet<ShortUrlView> ShortUrlViews { get; set; }
 }
