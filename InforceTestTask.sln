@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InforceTestTask", "InforceTestTask\InforceTestTask.csproj", "{FC73AA1B-76FA-40FA-95D7-09ED7425DA79}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InforceTestTask.DataBase", "InforceTestTask.DataBase\InforceTestTask.DataBase.csproj", "{193507B5-3C3F-4400-826E-8C2BA3EFFB57}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,18 @@ Global
 		{FC73AA1B-76FA-40FA-95D7-09ED7425DA79}.Release|x64.Build.0 = Release|Any CPU
 		{FC73AA1B-76FA-40FA-95D7-09ED7425DA79}.Release|x86.ActiveCfg = Release|Any CPU
 		{FC73AA1B-76FA-40FA-95D7-09ED7425DA79}.Release|x86.Build.0 = Release|Any CPU
+		{193507B5-3C3F-4400-826E-8C2BA3EFFB57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{193507B5-3C3F-4400-826E-8C2BA3EFFB57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{193507B5-3C3F-4400-826E-8C2BA3EFFB57}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{193507B5-3C3F-4400-826E-8C2BA3EFFB57}.Debug|x64.Build.0 = Debug|Any CPU
+		{193507B5-3C3F-4400-826E-8C2BA3EFFB57}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{193507B5-3C3F-4400-826E-8C2BA3EFFB57}.Debug|x86.Build.0 = Debug|Any CPU
+		{193507B5-3C3F-4400-826E-8C2BA3EFFB57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{193507B5-3C3F-4400-826E-8C2BA3EFFB57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{193507B5-3C3F-4400-826E-8C2BA3EFFB57}.Release|x64.ActiveCfg = Release|Any CPU
+		{193507B5-3C3F-4400-826E-8C2BA3EFFB57}.Release|x64.Build.0 = Release|Any CPU
+		{193507B5-3C3F-4400-826E-8C2BA3EFFB57}.Release|x86.ActiveCfg = Release|Any CPU
+		{193507B5-3C3F-4400-826E-8C2BA3EFFB57}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
