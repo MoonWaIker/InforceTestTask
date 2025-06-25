@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 namespace InforceTestTask.DataBase.Entities;
@@ -15,4 +16,11 @@ public record ShortenUrl
 
     [Required]
     public required Uri ShortenedUrl { get; init; }
+
+    public DateTime CreatedDate { get; init; } = DateTimeOffset.UtcNow.UtcDateTime;
+
+    public long UserId { get; init; }
+
+    [ForeignKey(nameof(UserId))]
+    public required User User { get; init; }
 }
