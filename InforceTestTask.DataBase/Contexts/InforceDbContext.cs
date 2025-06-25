@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InforceTestTask.DataBase.Contexts;
 
-public class InforceDbContext : DbContext
+public class InforceDbContext(DbContextOptions<InforceDbContext> options) : DbContext(options)
 {
     public DbSet<ShortenUrl> ShortenUrls { get; set; }
 }
