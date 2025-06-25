@@ -1,4 +1,5 @@
 using InforceTestTask.DataBase.Utils;
+using InforceTestTask.Infrastructure.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDataBaseServices();
+builder.Services.AddInfrastructureServices();
 
 var app = builder.Build();
 
