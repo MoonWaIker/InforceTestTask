@@ -12,4 +12,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.17" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\InforceTestTask.Core\InforceTestTask.Core.csproj" />
+  </ItemGroup>
+
 </Project>
