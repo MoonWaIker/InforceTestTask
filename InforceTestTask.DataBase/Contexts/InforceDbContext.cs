@@ -8,5 +8,5 @@ namespace InforceTestTask.DataBase.Contexts;
 public sealed class InforceDbContext(DbContextOptions<InforceDbContext> options)
     : IdentityDbContext<User, IdentityRole<Guid>, Guid>(options)
 {
-    public DbSet<ShortenUrl> ShortenUrls { get; set; }
+    public DbSet<ShortenUrlEntity> ShortenUrls { get; init; }
 }
