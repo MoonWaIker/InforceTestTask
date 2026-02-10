@@ -1,5 +1,5 @@
-using InforceTestTask.Infrastructure.Interfaces;
 using InforceTestTask.Infrastructure.Services;
+using InforceTestTask.Infrastructure.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace InforceTestTask.Infrastructure.Utils;

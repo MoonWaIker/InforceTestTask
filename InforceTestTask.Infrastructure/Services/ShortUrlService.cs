@@ -1,39 +1,42 @@
 ﻿using InforceTestTask.DataBase.Contexts;
 using InforceTestTask.DataBase.Entities;
-using InforceTestTask.Infrastructure.Interfaces;
+using InforceTestTask.Infrastructure.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace InforceTestTask.Infrastructure.Services;
 
-public class ShortUrlService(InforceDbContext context) : IShortUrlService
+public sealed class ShortUrlService(InforceDbContext context) : IShortUrlService
 {
-    public IEnumerable<ShortenUrl> GetShortenUrls => context.ShortenUrls;
+    private readonly InforceDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
 
-    public ShortenUrl GetShortenUrl(int id)
+    public IEnumerable<ShortenUrl> GetShortenUrls => _context.ShortenUrls;
+
+    // TODO Do you really need to get the shorten with the owner?
+    public ShortenUrl GetShortenUrl(Guid id)
     {
-        return context.ShortenUrls
-        .Include(url => url.User)
-        .First(url => url.Id == id);
+        return _context.ShortenUrls
+            .Include(static url => url.User)
+            .First(url => url.Id == id);
     }
 
     public void UpdateShortenUrl(ShortenUrl shortenUrl)
     {
-        context.Update(shortenUrl);
+        _context.Update(shortenUrl);
 
-        context.SaveChanges();
+        _context.SaveChanges();
     }
 
     public void AddShortenUrl(ShortenUrl shortenUrl)
     {
-        context.ShortenUrls.Add(shortenUrl);
+        _context.ShortenUrls.Add(shortenUrl);
 
-        context.SaveChanges();
+        _context.SaveChanges();
     }
 
-    public void DeleteShortenUrl(int id)
+    public void DeleteShortenUrl(Guid id)
     {
-        context.ShortenUrls.Remove(GetShortenUrl(id));
+        _context.ShortenUrls.Remove(GetShortenUrl(id));
 
-        context.SaveChanges();
+        _context.SaveChanges();
     }
 }

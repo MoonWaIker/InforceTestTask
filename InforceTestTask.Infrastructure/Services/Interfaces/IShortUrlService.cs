@@ -1,16 +1,16 @@
 using InforceTestTask.DataBase.Entities;
 
-namespace InforceTestTask.Infrastructure.Interfaces;
+namespace InforceTestTask.Infrastructure.Services.Interfaces;
 
 public interface IShortUrlService
 {
     IEnumerable<ShortenUrl> GetShortenUrls { get; }
 
-    ShortenUrl GetShortenUrl(int id);
+    ShortenUrl GetShortenUrl(Guid id);
 
     void UpdateShortenUrl(ShortenUrl shortenUrl);
 
     void AddShortenUrl(ShortenUrl shortenUrl);
 
-    void DeleteShortenUrl(int id);
+    void DeleteShortenUrl(Guid id);
 }
