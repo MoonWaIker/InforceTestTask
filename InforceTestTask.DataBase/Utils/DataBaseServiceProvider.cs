@@ -10,13 +10,11 @@ public static class DataBaseServiceProvider
     private const string ConnectionStringKey = "MSSQL";
     private const string ConnectionStringErrorMessage = $"Connection string '{ConnectionStringKey}' not found.";
 
-    public static void AddDataBaseServices(this IServiceCollection services)
+    public static void AddDataBaseServices(this IServiceCollection services, IConfiguration configuration)
     {
-        string connectionString = services
-            .BuildServiceProvider()
-            .GetRequiredService<IConfiguration>()
-            .GetConnectionString(ConnectionStringKey)
-                                    ?? throw new InvalidOperationException(ConnectionStringErrorMessage);
+        var connectionString = configuration
+                                   .GetConnectionString(ConnectionStringKey)
+                               ?? throw new InvalidOperationException(ConnectionStringErrorMessage);
 
         services.AddDbContext<InforceDbContext>(options =>
         {

@@ -1,6 +1,6 @@
 namespace InforceTestTask.DataBase.Enums;
 
-public enum UserType
+public enum UserRole
 {
     Ordinary,
     Admin,
