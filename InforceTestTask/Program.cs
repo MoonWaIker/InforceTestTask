@@ -11,7 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDataBaseServices();
+builder.Services.AddDataBaseServices(builder.Configuration);
 builder.Services.AddInfrastructureServices();
 builder.ConfigureAuth();
 

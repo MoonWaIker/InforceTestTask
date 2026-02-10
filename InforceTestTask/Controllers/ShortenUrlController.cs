@@ -1,8 +1,6 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using InforceTestTask.DataBase.Contexts;
 using InforceTestTask.DataBase.Entities;
-using InforceTestTask.Infrastructure.Interfaces;
+using InforceTestTask.Infrastructure.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace InforceTestTask.Controllers;
 
@@ -10,41 +8,44 @@ namespace InforceTestTask.Controllers;
 [ApiController]
 public class ShortenUrlController(IShortUrlService shortUrlService) : ControllerBase
 {
-    private const string IdRoute = "{id:BigInteger}";
+    private const string IdRoute = "{id:guid}";
     private const string ApiRoute = "api/[controller]";
+
+    private readonly IShortUrlService _shortUrlService =
+        shortUrlService ?? throw new ArgumentNullException(nameof(shortUrlService));
+
+    [HttpDelete(IdRoute)]
+    public IActionResult DeleteShortenUrl(Guid id)
+    {
+        _shortUrlService.DeleteShortenUrl(id);
+
+        return NoContent();
+    }
+
+    [HttpGet(IdRoute)]
+    public ActionResult<ShortenUrl> GetShortenUrl(Guid id)
+    {
+        return Ok(_shortUrlService.GetShortenUrl(id));
+    }
 
     [HttpGet]
     public ActionResult<IEnumerable<ShortenUrl>> GetShortenUrls()
     {
-        return Ok(shortUrlService.GetShortenUrls);
-    }
-
-    [HttpGet(IdRoute)]
-    public ActionResult<ShortenUrl> GetShortenUrl(int id)
-    {
-        return shortUrlService.GetShortenUrl(id);
-    }
-
-    [HttpPut]
-    public IActionResult PutShortenUrl(ShortenUrl shortenUrl)
-    {
-        shortUrlService.UpdateShortenUrl(shortenUrl);
-
-        return NoContent();
+        return Ok(_shortUrlService.GetShortenUrls);
     }
 
     [HttpPost]
     public ActionResult<ShortenUrl> PostShortenUrl(ShortenUrl shortenUrl)
     {
-        shortUrlService.AddShortenUrl(shortenUrl);
+        _shortUrlService.AddShortenUrl(shortenUrl);
 
         return Created();
     }
 
-    [HttpDelete(IdRoute)]
-    public IActionResult DeleteShortenUrl(int id)
+    [HttpPut]
+    public IActionResult PutShortenUrl(ShortenUrl shortenUrl)
     {
-        shortUrlService.DeleteShortenUrl(id);
+        _shortUrlService.UpdateShortenUrl(shortenUrl);
 
         return NoContent();
     }
