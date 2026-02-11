@@ -1,4 +1,5 @@
 using InforceTestTask.DataBase.Entities;
+using InforceTestTask.Infrastructure.DTOs;
 using InforceTestTask.Infrastructure.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,29 +24,27 @@ public class ShortenUrlController(IShortUrlService shortUrlService) : Controller
     }
 
     [HttpGet(IdRoute)]
-    public ActionResult<ShortenUrl> GetShortenUrl(Guid id)
+    public ActionResult<ShortenUrlDto> GetShortenUrl(Guid id)
     {
         return Ok(_shortUrlService.GetShortenUrl(id));
     }
 
     [HttpGet]
-    public ActionResult<IEnumerable<ShortenUrl>> GetShortenUrls()
+    public ActionResult<IEnumerable<ShortenUrlEntity>> GetShortenUrls()
     {
         return Ok(_shortUrlService.GetShortenUrls);
     }
 
     [HttpPost]
-    public ActionResult<ShortenUrl> PostShortenUrl(ShortenUrl shortenUrl)
+    public ActionResult<ShortenUrlEntity> PostShortenUrl([FromBody] ShortenUrlDto shortenUrlEntity)
     {
-        _shortUrlService.AddShortenUrl(shortenUrl);
-
-        return Created();
+        return CreatedAtAction(nameof(GetShortenUrl), _shortUrlService.AddShortenUrl(shortenUrlEntity));
     }
 
     [HttpPut]
-    public IActionResult PutShortenUrl(ShortenUrl shortenUrl)
+    public IActionResult PutShortenUrl([FromBody] ShortenUrlDto shortenUrlEntity)
     {
-        _shortUrlService.UpdateShortenUrl(shortenUrl);
+        _shortUrlService.UpdateShortenUrl(shortenUrlEntity);
 
         return NoContent();
     }
