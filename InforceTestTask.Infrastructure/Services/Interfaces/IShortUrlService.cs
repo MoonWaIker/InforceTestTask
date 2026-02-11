@@ -1,16 +1,16 @@
-using InforceTestTask.DataBase.Entities;
+using InforceTestTask.Infrastructure.DTOs;
 
 namespace InforceTestTask.Infrastructure.Services.Interfaces;
 
 public interface IShortUrlService
 {
-    IEnumerable<ShortenUrl> GetShortenUrls { get; }
+    IEnumerable<ShortenUrlDto> GetShortenUrls { get; }
 
-    ShortenUrl GetShortenUrl(Guid id);
-
-    void UpdateShortenUrl(ShortenUrl shortenUrl);
-
-    void AddShortenUrl(ShortenUrl shortenUrl);
+    Guid AddShortenUrl(ShortenUrlDto shortenUrlDto);
 
     void DeleteShortenUrl(Guid id);
+
+    ShortenUrlDto GetShortenUrl(Guid id);
+
+    void UpdateShortenUrl(ShortenUrlDto shortenUrlDto);
 }
